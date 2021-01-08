@@ -4,19 +4,21 @@ import { connect } from 'react-redux';
 import AutoSpeechRec from './Components/ASR';
 import MachineTranslation from './Components/MT';
 import TextToSpeech from './Components/TTS';
-import { setFileFiled } from './actions';
+import { setFileFiled, setLangField } from './actions';
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
-    fileFiled: state.fileFiled
+    fileFiled: state.fileFiled,
+    langField: state.langField
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     onInputChange: (event) => {
-      // console.log(event.target.file[0])
       dispatch(setFileFiled(event.target.files[0]))
+    },
+    onSelect: (event) => {
+      dispatch(setLangField(event.target.value))
     }
   }
 }
@@ -41,14 +43,16 @@ class App extends Component {
 
   render() {
     const { fileFiled, onInputChange } = this.props;
+    const { langField , onSelect } = this.props;
+    console.log('in 1st props', this.props);
     return (
       <div className="App">
         <div className="div1">
           <input type="file" onChange={onInputChange} />
-          <select>
+          <select onChange={onSelect}>
             <option disabled selected>Select Language</option>
-            <option >Marathi</option>
-            <option >Sanskit</option>
+            <option value="ja">Japnies</option>
+            <option value="">Hindi</option>
           </select>
         </div>
         <div className="div2">
