@@ -24,12 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
 
-    // this.onInputChange = this.onInputChange.bind(this);
-    // this.state.inputFile = React.createRef();
-  }
   // onInputChange(e) {
   //   this.setState({ inputFile: e.target.files[0] });
   //   const reader = new FileReader();
@@ -42,9 +37,7 @@ class App extends Component {
   // }  
 
   render() {
-    const { fileFiled, onInputChange } = this.props;
-    const { langField , onSelect } = this.props;
-    console.log('in 1st props', this.props);
+    const { onSelect, onInputChange } = this.props;
     return (
       <div className="App">
         <div className="div1">
@@ -52,7 +45,11 @@ class App extends Component {
           <select onChange={onSelect}>
             <option disabled selected>Select Language</option>
             <option value="ja">Japnies</option>
-            <option value="">Hindi</option>
+            <option value="zh">Chinese</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ru">Russian</option>
+            <option value="es">Spanish</option>
           </select>
         </div>
         <div className="div2">

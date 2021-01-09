@@ -4,20 +4,20 @@ import { setFileFiled } from '../actions';
 
 const mapStateToProps = (state) => {
     return {
-        fileField : state.fileFiled
+        fileField: state.fileFiled
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return{
-        onClick:(event) => {
+    return {
+        onClick: (event) => {
             //API Initialization 
             //API calling
             //englistaudio_to_text = converted output
             console.log('english audio to text converted');
             dispatch(setFileFiled('englistaudio_to_text.txt'));
         },
-        onClickDownload:(event) => {
+        onClickDownload: (event) => {
             //API Initialization 
             //API calling
             //englistaudio_to_text = converted output
@@ -28,11 +28,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class AutoSpeechRec extends Component {
-    constructor(props) {
-        super(props);
-      }
+
     render() {
-        const { fileFiled, onClick, onClickDownload} = this.props;
+        const { onClick, onClickDownload } = this.props;
         return (
             <div className="card" style={{ marginLeft: 0 }}>
                 <h1> A S R </h1>
@@ -43,4 +41,4 @@ class AutoSpeechRec extends Component {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AutoSpeechRec);
+export default connect(mapStateToProps, mapDispatchToProps)(AutoSpeechRec);

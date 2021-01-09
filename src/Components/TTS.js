@@ -4,19 +4,19 @@ import { setFileFiled } from '../actions';
 
 const mapStateToProps = (state) => {
     return {
-        fileField : state.fileFiled
+        fileField: state.fileFiled
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return{
-        onBtnPress:(event) => {
+    return {
+        onBtnPress: (event) => {
             //API Initialization 
             //API calling
             //englistaudio_to_text = converted output
             console.log('lang text to audio converted');
             dispatch(setFileFiled('lang_text_to_lang_audio.txt'));
         },
-        onBtnPressDownload:(event) => {
+        onBtnPressDownload: (event) => {
             //API Initialization 
             //API calling
             //englistaudio_to_text = converted output
@@ -25,12 +25,10 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
- class TextToSpeech extends Component {
-    constructor(props) {
-        super(props);
-      }
-     render() {
-        const { fileFiled, onBtnPress, onBtnPressDownload } = this.props;
+class TextToSpeech extends Component {
+
+    render() {
+        const { onBtnPress, onBtnPressDownload } = this.props;
         return (
             <div className="card" style={{ marginRight: 0 }}>
                 <h1>T T S</h1>
@@ -41,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(TextToSpeech);
+export default connect(mapStateToProps, mapDispatchToProps)(TextToSpeech);
